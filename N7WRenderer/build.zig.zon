@@ -1,7 +1,7 @@
 .{
     .name = .N7WRenderer,
     .version = "0.0.0",
-    .fingerprint = 0xed22b93d9f68b952, 
+    .fingerprint = 0x1e682a58524863ad, 
     .minimum_zig_version = "0.14.0",
     .dependencies = .{
     },
