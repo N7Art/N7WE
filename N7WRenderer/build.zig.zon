@@ -1,10 +1,12 @@
 .{
     .name = .N7WRenderer,
     .version = "0.0.0",
-    .fingerprint = 0x1e682a58524863ad, 
+    .fingerprint = 0x1e682a58524863ad,
     .minimum_zig_version = "0.14.0",
-    .dependencies = .{
-    },
+    .dependencies = .{ .raylib_zig = .{
+        .url = "git+https://github.com/Not-Nik/raylib-zig?ref=devel#d6c77762cbdebbf56d3ff101142048dfae2496c4",
+        .hash = "raylib_zig-5.6.0-dev-KE8REBMyBQCnQ9RBhHsoSKr97XmDHF84wx3g0UiMRDxj",
+    } },
     .paths = .{
         "build.zig",
         "build.zig.zon",

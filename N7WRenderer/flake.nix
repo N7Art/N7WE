@@ -30,7 +30,7 @@
 
       devShells.${system}.default = pkgs.mkShell {
 
-        buildInputs = [
+        nativeBuildInputs = [
           wayland-scanner
           wayland
           libxkbcommon
