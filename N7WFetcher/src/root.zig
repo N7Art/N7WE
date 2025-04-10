@@ -3,7 +3,6 @@ const http = std.http;
 
 /// needs to be freed
 pub fn GET(allocator: std.mem.Allocator ,url: []const u8) ![]const u8 {
-
     var client = http.Client{ .allocator = allocator };
     defer client.deinit();
 
