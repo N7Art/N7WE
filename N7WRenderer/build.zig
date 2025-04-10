@@ -35,6 +35,9 @@ pub fn build(b: *std.Build) void {
         .root_module = lib_mod,
     });
     
+    lib.linkLibrary(raylib_artifact);
+    lib.root_module.addImport("raylib", raylib);
+    lib.root_module.addImport("raygui", raygui);
     b.installArtifact(lib);
     
     const exe = b.addExecutable(.{
