@@ -14,6 +14,7 @@
         wayland
         libxkbcommon
         libGLX
+        zig
         ;
       inherit (pkgs.xorg)
         libX11
@@ -31,6 +32,7 @@
       devShells.${system}.default = pkgs.mkShell {
 
         nativeBuildInputs = [
+          zig
           wayland-scanner
           wayland
           libxkbcommon
