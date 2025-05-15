@@ -1,53 +1,38 @@
 {
-  description = "A very basic flake";
+  description = "raylib flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   };
   outputs =
-    { self, nixpkgs }@inputs:
+    {self,  nixpkgs }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      inherit (pkgs)
-        wayland-scanner
-        wayland
-        libxkbcommon
-        libGLX
-        zig
-        ;
-      inherit (pkgs.xorg)
-        libX11
-        libXcursor
-        libXext
-        libXfixes
-        libXi
-        libXinerama
-        libXrandr
-        libXrender
-        ;
     in
     {
 
       devShells.${system}.default = pkgs.mkShell {
+        buildInputs =
+          (with pkgs; [
+            wayland-scanner
+            wayland
+            libxkbcommon
+            libGLX
+            zig
+          ])
+          ++ (with pkgs.xorg; [
 
-        nativeBuildInputs = [
-          zig
-          wayland-scanner
-          wayland
-          libxkbcommon
-          libGLX
+            libX11
+            libXcursor
+            libXext
+            libXfixes
+            libXi
+            libXinerama
+            libXrandr
+            libXrender
+          ]);
 
-          libX11
-          libXcursor
-          libXext
-          libXfixes
-          libXi
-          libXinerama
-          libXrandr
-          libXrender
-        ];
       };
-
     };
 }
